@@ -617,6 +617,37 @@ function finaliser() {
   ftr();
 
   doc.save('contrat-signe-cnet-'+(c.nom||'client').replace(/\s+/g,'-')+'-'+(c.num||'')+'.pdf');
+
+  // ── ÉCRAN DE SUCCÈS ──────────────────────────────────────────────────────
+  setTimeout(function() {
+    var tps2 = Math.round((c.montant||0)*0.05*100)/100;
+    var tvq2 = Math.round((c.montant||0)*0.09975*100)/100;
+    var tot2 = Math.round(((c.montant||0)+tps2+tvq2)*100)/100;
+    var modeLabel = c.modePaiement==='interac' ? 'Virement Interac' : 'Chèque postdaté';
+    var modalLabel = (c.modalitePaiement==='1v') ? '1 versement unique de '+fmt2(tot2)+' $' : '3 versements de '+fmt2(Math.round(tot2/3*100)/100)+' $';
+
+    var today2 = new Date().toLocaleDateString('fr-CA',{year:'numeric',month:'long',day:'numeric'});
+    var s3 = document.getElementById('s3');
+    s3.innerHTML =
+      '<div class="succes">' +
+        '<div class="succes-icon">✅</div>' +
+        '<h2>Contrat signé avec succès !</h2>' +
+        '<p>Merci <strong>' + c.nom + '</strong>, votre contrat <strong>' + (c.num||'') + '</strong> a été signé le ' + today2 + '.<br>Votre PDF a été téléchargé automatiquement.</p>' +
+        '<div style="background:#f0fdf4;border:2px solid #1e4d1a;border-radius:14px;padding:18px 20px;margin:16px 0;text-align:left">' +
+          '<div style="font-size:12px;font-weight:700;color:#1e4d1a;margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em">Récapitulatif</div>' +
+          '<div style="display:grid;gap:6px">' +
+            '<div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#5a7a52">Mode de paiement</span><strong>' + modeLabel + '</strong></div>' +
+            '<div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#5a7a52">Versements</span><strong>' + modalLabel + '</strong></div>' +
+            '<div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#5a7a52">Total (taxes incl.)</span><strong style="color:#1e4d1a;font-size:16px">' + fmt2(tot2) + ' $</strong></div>' +
+          '</div>' +
+        '</div>' +
+        '<div style="background:#fffbeb;border:1px solid #e6c84a;border-radius:10px;padding:14px 16px;margin-bottom:16px;font-size:13px;color:#7a6010">' +
+          '📧 <strong>Dernière étape :</strong> Cliquez le bouton ci-dessous pour envoyer la confirmation à Entretien C-Net.' +
+        '</div>' +
+        '<button onclick="envoyerConfirmation()" style="background:#1e4d1a;color:white;border:none;border-radius:12px;padding:16px 28px;font-size:15px;font-weight:700;cursor:pointer;width:100%;margin-bottom:10px">📧 Envoyer la confirmation par courriel</button>' +
+        '<p style="font-size:11px;color:#a0b89a;margin-top:8px">Entretien C-Net · 418 440-6303 · entretiencnet.com</p>' +
+      '</div>';
+  }, 500);
 }
 // ── UTILITAIRES ─────────────────────────────────────────────────────────────
 function fmt2(n){ return parseFloat(n||0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0'); }
@@ -625,6 +656,34 @@ function fmtD(d){
   var p=d.split('-');
   var mo=['janv','fevr','mars','avr','mai','juin','juil','aout','sept','oct','nov','dec'];
   return parseInt(p[2])+' '+mo[parseInt(p[1])-1]+' '+p[0];
+}
+
+function envoyerConfirmation() {
+  var today = new Date().toISOString().split('T')[0];
+  var tps = Math.round((c.montant||0)*0.05*100)/100;
+  var tvq = Math.round((c.montant||0)*0.09975*100)/100;
+  var tot = Math.round(((c.montant||0)+tps+tvq)*100)/100;
+  var modeLabel = c.modePaiement==='interac' ? 'Virement Interac' : 'Chèque postdaté';
+  var modalLabel = (c.modalitePaiement==='1v') ? '1 versement unique' : '3 versements';
+
+  var retourParam = getParam('retour');
+  var lienRetour = retourParam ? decodeURIComponent(retourParam) : '';
+
+  var sujet = 'Contrat signé — ' + (c.num||'') + ' — ' + (c.nom||'');
+  var corps =
+    'Bonjour Dereck,\n\n' +
+    (c.nom||'') + ' a signé le contrat ' + (c.num||'') + ' le ' + fmtD(today) + '.\n\n' +
+    '— Mode de paiement : ' + modeLabel + '\n' +
+    '— Versements : ' + modalLabel + '\n' +
+    '— Total (taxes incluses) : ' + fmt2(tot) + ' $\n\n' +
+    (lienRetour ?
+      '✅ CLIQUE CE LIEN POUR MARQUER LE CONTRAT SIGNÉ DANS TON SYSTÈME :\n' + lienRetour + '\n\n' :
+      '') +
+    'Cordialement,\n' + (c.nom||'Le client');
+
+  window.location.href = 'mailto:dereck@entretiencnet.com' +
+    '?subject=' + encodeURIComponent(sujet) +
+    '&body=' + encodeURIComponent(corps);
 }
 </script>
 </body>
