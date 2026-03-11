@@ -515,7 +515,7 @@ function finaliser() {
     });
     doc.setFillColor(30,77,26); doc.rect(M,y,CW,8,'F');
     doc.setFont('helvetica','bold'); doc.setTextColor(255,255,255); doc.setFontSize(8.5);
-    doc.text('TOTAL TAXES INCLUSES (TPS+TVQ)',M+3,y+5.5);
+    doc.text('TOTAL TAXES INCLUSES',M+3,y+4); doc.setFontSize(6); doc.text('TPS No 745168070RT0001  |  TVQ No 1227303871TQ0001',M+3,y+8);
     doc.text(fmt2(tot)+' $',W-M-3,y+5.5,{align:'right'}); y+=10;
   } else {
     doc.setFillColor(237,247,234); doc.rect(M,y,CW,8,'F');
@@ -523,7 +523,7 @@ function finaliser() {
     doc.text('Paiement unique  -  '+mLbl,M+2,y+5);
     doc.setFillColor(30,77,26); doc.rect(M,y+9,CW,8,'F');
     doc.setFont('helvetica','bold'); doc.setTextColor(255,255,255); doc.setFontSize(8.5);
-    doc.text('TOTAL TAXES INCLUSES (TPS+TVQ)',M+3,y+14.5);
+    doc.text('TOTAL TAXES INCLUSES',M+3,y+13); doc.setFontSize(6); doc.text('TPS No 745168070RT0001  |  TVQ No 1227303871TQ0001',M+3,y+17);
     doc.text(fmt2(tot)+' $',W-M-3,y+14.5,{align:'right'}); y+=19;
   }
   y+=4;
@@ -681,7 +681,7 @@ function envoyerConfirmation() {
       '') +
     'Cordialement,\n' + (c.nom||'Le client');
 
-  window.location.href = 'mailto:dereck@entretiencnet.com' +
+  window.location.href = 'mailto:tremblaymrs@gmail.com' +
     '?subject=' + encodeURIComponent(sujet) +
     '&body=' + encodeURIComponent(corps);
 }
