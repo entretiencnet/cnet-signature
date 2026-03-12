@@ -15,245 +15,149 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{min-height:100vh;}
-body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--bg);
-  color:var(--texte);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:32px 16px 80px;
-}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--texte);display:flex;flex-direction:column;align-items:center;padding:32px 16px 80px;}
 
-/* ── LOGO ── */
-.top{text-align:center;margin-bottom:28px;}
-.top .badge-secure{
-  display:inline-flex;align-items:center;gap:6px;
-  background:#dcfce7;color:#166534;
-  padding:5px 14px;border-radius:20px;
-  font-size:11px;font-weight:800;
-  text-transform:uppercase;letter-spacing:0.05em;
-  margin-bottom:14px;
-}
+.top{text-align:center;margin-bottom:24px;}
+.badge-secure{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#166534;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;}
 .top h1{font-size:26px;font-weight:900;color:var(--vert);}
 .top .sous{font-size:13px;color:var(--gris);margin-top:4px;}
 
-/* ── CARD ── */
-.card{
-  background:white;
-  border-radius:20px;
-  box-shadow:0 4px 40px rgba(0,0,0,0.10);
-  width:100%;max-width:540px;
-  overflow:hidden;
-}
-.card-head{
-  background:var(--vert);
-  padding:20px 24px;
-  display:flex;align-items:center;gap:14px;
-}
-.card-head .ico{
-  width:48px;height:48px;background:rgba(255,255,255,0.15);
-  border-radius:12px;display:flex;align-items:center;
-  justify-content:center;font-size:24px;flex-shrink:0;
-}
-.card-head h2{font-size:17px;font-weight:900;color:white;}
-.card-head p{font-size:12px;color:rgba(255,255,255,0.65);margin-top:2px;}
-.card-body{padding:24px;}
+.card{background:white;border-radius:20px;box-shadow:0 4px 40px rgba(0,0,0,0.10);width:100%;max-width:560px;overflow:hidden;margin-bottom:14px;}
+.card-head{background:var(--vert);padding:18px 22px;display:flex;align-items:center;gap:14px;}
+.card-head .ico{width:44px;height:44px;background:rgba(255,255,255,0.15);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.card-head h2{font-size:16px;font-weight:900;color:white;}
+.card-head p{font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px;}
+.card-head.gold{background:var(--or);}
+.card-head.gold h2{color:#1a1000;}
+.card-head.gold p{color:rgba(26,16,0,0.55);}
+.card-head.bleu{background:#1a3d6e;}
+.card-body{padding:20px 22px;}
 
-/* ── INFOS CONTRAT ── */
-.infos-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:10px;margin-bottom:20px;
-}
-.info-pill{
-  background:var(--bg);border-radius:10px;
-  padding:10px 13px;
-}
-.info-lbl{font-size:10px;font-weight:800;color:var(--gris);
-  text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px;}
+.infos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.info-pill{background:var(--bg);border-radius:10px;padding:10px 13px;}
+.info-lbl{font-size:10px;font-weight:800;color:var(--gris);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px;}
 .info-val{font-size:14px;font-weight:700;color:var(--texte);}
 .info-val.num{font-family:'DM Mono',monospace;color:var(--or);}
 
-/* ── SERVICES ── */
-.svc-list{background:var(--bg);border-radius:12px;padding:14px;margin-bottom:20px;}
-.svc-titre{font-size:11px;font-weight:800;color:var(--vert);
-  text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px;}
-.svc-row{display:flex;align-items:center;gap:8px;
-  font-size:13px;color:var(--texte);padding:4px 0;}
-.svc-dot{width:8px;height:8px;border-radius:3px;
-  background:var(--vert-clair);flex-shrink:0;}
+.s-titre{font-size:11px;font-weight:800;color:var(--vert);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.s-titre::before{content:'';display:block;width:3px;height:13px;background:var(--or);border-radius:2px;}
 
-/* ── TOTAL ── */
-.total-box{
-  background:var(--vert);border-radius:12px;
-  padding:14px 18px;display:flex;
-  align-items:center;justify-content:space-between;
-  margin-bottom:20px;
-}
-.total-box .lbl{color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;}
-.total-box .montant{color:var(--or-clair);font-size:22px;font-weight:900;}
+/* TABLEAU PRIX */
+.taxes-bloc{background:var(--bg);border-radius:12px;padding:12px 16px;margin-bottom:14px;}
+.tax-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--gris);}
+.tax-row span:last-child{font-weight:700;color:var(--texte);}
+.tax-sep{height:1px;background:var(--bg2);margin:6px 0;}
+.total-ttc{background:var(--vert);border-radius:12px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;}
+.total-ttc .lbl{color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;}
+.total-ttc .lbl small{display:block;font-size:10px;color:rgba(255,255,255,0.45);margin-top:2px;}
+.total-ttc .montant{color:var(--or-clair);font-size:24px;font-weight:900;font-family:'DM Mono',monospace;}
 
-/* ── PAIEMENT ── */
-.paiement-section{margin-bottom:20px;}
-.section-titre{font-size:12px;font-weight:800;color:var(--vert);
-  text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px;}
-.radio-group{display:flex;flex-direction:column;gap:8px;}
-.radio-opt{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:12px 14px;border:2px solid var(--bg2);border-radius:12px;
-  cursor:pointer;transition:all 0.15s;
-}
+/* CHOIX VERSEMENTS */
+.radio-group{display:flex;flex-direction:column;gap:10px;}
+.radio-opt{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:2.5px solid var(--bg2);border-radius:14px;cursor:pointer;transition:all 0.15s;}
 .radio-opt:hover{border-color:var(--vert-clair);}
 .radio-opt.sel{border-color:var(--vert);background:#f0f8ee;}
-.radio-opt input[type=radio]{margin-top:2px;accent-color:var(--vert);}
-.radio-nom{font-size:13px;font-weight:700;}
-.radio-desc{font-size:11px;color:var(--gris);margin-top:2px;}
+.radio-opt input[type=radio]{margin-top:3px;accent-color:var(--vert);width:17px;height:17px;flex-shrink:0;cursor:pointer;}
+.r-nom{font-size:14px;font-weight:800;color:var(--texte);}
+.r-desc{font-size:11px;color:var(--gris);margin-top:3px;line-height:1.5;}
+.r-badge{display:inline-block;background:#dcfce7;color:#166534;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:800;margin-top:6px;}
 
-.mode-group{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
-.mode-opt{
-  display:flex;align-items:center;gap:8px;
-  padding:10px 12px;border:2px solid var(--bg2);border-radius:10px;
-  cursor:pointer;transition:all 0.15s;font-size:13px;font-weight:700;
-}
+/* TABLEAU 3 VERSEMENTS */
+.vers-tableau{border:1.5px solid #a8d5a2;border-radius:12px;overflow:hidden;margin-top:10px;display:none;}
+.vers-tableau.show{display:block;}
+.vers-th{background:var(--vert);display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:8px 14px;}
+.vers-th span{font-size:10px;font-weight:800;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.04em;}
+.vers-th span:last-child{text-align:right;}
+.vers-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:10px 14px;border-bottom:1px solid #d4edcf;background:white;font-size:13px;align-items:center;}
+.vers-row:nth-child(even){background:#f6fbf5;}
+.vers-row:last-child{border-bottom:none;}
+.vers-row .vr-lbl{font-weight:800;color:var(--vert);}
+.vers-row .vr-date{color:var(--gris);font-size:12px;}
+.vers-row .vr-mont{font-weight:900;color:var(--vert);text-align:right;font-family:'DM Mono',monospace;}
+.vers-foot{background:var(--vert);display:flex;justify-content:space-between;padding:9px 14px;}
+.vers-foot span{color:rgba(255,255,255,0.75);font-size:12px;font-weight:700;}
+.vers-foot strong{color:var(--or-clair);font-size:14px;font-weight:900;font-family:'DM Mono',monospace;}
+
+/* BLOC 1V */
+.vers-1v{background:#f0f8ee;border:1.5px solid #a8d5a2;border-radius:12px;padding:14px 18px;margin-top:10px;display:none;}
+.vers-1v.show{display:flex;align-items:center;justify-content:space-between;}
+.vers-1v .v1-lbl{font-size:13px;font-weight:700;color:var(--gris);}
+.vers-1v .v1-date{font-size:11px;color:var(--gris);margin-top:2px;}
+.vers-1v .v1-mont{font-size:22px;font-weight:900;color:var(--vert);font-family:'DM Mono',monospace;}
+
+/* MODE PAIEMENT */
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mode-opt{display:flex;align-items:center;gap:10px;padding:14px 16px;border:2.5px solid var(--bg2);border-radius:14px;cursor:pointer;transition:all 0.15s;}
 .mode-opt:hover{border-color:var(--vert-clair);}
 .mode-opt.sel{border-color:var(--vert);background:#f0f8ee;}
-.mode-opt input[type=radio]{accent-color:var(--vert);}
+.mode-opt input[type=radio]{accent-color:var(--vert);width:17px;height:17px;cursor:pointer;}
+.m-ico{font-size:22px;}
+.m-nom{font-size:13px;font-weight:800;color:var(--texte);}
+.m-desc{font-size:11px;color:var(--gris);margin-top:1px;}
 
-/* ── VERSEMENTS ── */
-.versements{background:#f0f8ee;border:1.5px solid #a8d5a2;
-  border-radius:12px;padding:14px;margin-top:10px;display:none;}
-.versements.show{display:block;}
-.v-row{display:flex;justify-content:space-between;align-items:center;
-  padding:7px 0;border-bottom:1px solid #c8e8c4;font-size:13px;}
-.v-row:last-child{border-bottom:none;}
-.v-lbl{color:var(--gris);}
-.v-montant{font-weight:800;color:var(--vert);}
-.v-date{font-size:11px;color:var(--gris);}
+.info-paiement{background:#fff8e7;border:1.5px solid var(--or);border-radius:10px;padding:12px 14px;margin-top:12px;display:none;}
+.info-paiement.show{display:block;}
+.ip-titre{font-size:10px;font-weight:800;color:#8a6010;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;}
+.ip-ligne{font-size:13px;color:#6b4700;padding:2px 0;line-height:1.6;}
+.ip-ligne strong{color:#3d2800;}
+.ip-note{font-size:11px;color:#8a6010;margin-top:6px;font-style:italic;}
 
-/* ── ZONE SIGNATURE ── */
-.signature-wrap{margin-bottom:20px;}
-.canvas-container{
-  border:2px solid var(--bg2);border-radius:14px;
-  overflow:hidden;background:white;position:relative;
-  cursor:crosshair;
-}
-canvas#sig-canvas{
-  display:block;width:100%;height:200px;
-  touch-action:none;
-}
-.sig-placeholder{
-  position:absolute;inset:0;display:flex;
-  align-items:center;justify-content:center;
-  flex-direction:column;gap:8px;pointer-events:none;
-  transition:opacity 0.3s;
-}
-.sig-placeholder.hidden{opacity:0;}
-.sig-placeholder .ph-ico{font-size:32px;opacity:0.3;}
-.sig-placeholder .ph-txt{font-size:13px;color:var(--gris);font-weight:600;}
-.sig-actions{display:flex;gap:8px;margin-top:8px;}
-.btn-effacer{
-  padding:7px 14px;border:1.5px solid var(--bg2);border-radius:8px;
-  background:white;font-family:'DM Sans',sans-serif;
-  font-size:12px;font-weight:700;color:var(--gris);cursor:pointer;
-  transition:all 0.15s;
-}
-.btn-effacer:hover{border-color:var(--rouge);color:var(--rouge);}
+/* CANVAS */
+.canvas-container{border:2px solid var(--bg2);border-radius:14px;overflow:hidden;background:white;position:relative;cursor:crosshair;}
+canvas#sig-canvas{display:block;width:100%;height:200px;touch-action:none;}
+.sig-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;pointer-events:none;transition:opacity 0.3s;}
+.sig-ph.hidden{opacity:0;}
+.sig-ph .ph-ico{font-size:32px;opacity:0.25;}
+.sig-ph .ph-txt{font-size:13px;color:var(--gris);font-weight:600;}
+.sig-actions{display:flex;align-items:center;gap:10px;margin-top:8px;}
+.btn-eff{padding:7px 14px;border:1.5px solid var(--bg2);border-radius:8px;background:white;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;color:var(--gris);cursor:pointer;}
+.btn-eff:hover{border-color:var(--rouge);color:var(--rouge);}
 
-/* ── CONSENTEMENT ── */
-.consent{
-  display:flex;align-items:flex-start;gap:10px;
-  background:#f0f8ee;border:1.5px solid #a8d5a2;
-  border-radius:10px;padding:12px 14px;margin-bottom:20px;
-  cursor:pointer;
-}
-.consent input[type=checkbox]{
-  width:18px;height:18px;margin-top:2px;accent-color:var(--vert);
-  flex-shrink:0;cursor:pointer;
-}
-.consent-txt{font-size:12px;color:var(--texte);line-height:1.7;}
+/* CONSENT */
+.consent{display:flex;align-items:flex-start;gap:10px;background:#f0f8ee;border:1.5px solid #a8d5a2;border-radius:12px;padding:14px 16px;cursor:pointer;margin-bottom:16px;}
+.consent input[type=checkbox]{width:18px;height:18px;margin-top:2px;accent-color:var(--vert);flex-shrink:0;cursor:pointer;}
+.consent-txt{font-size:12px;color:var(--texte);line-height:1.8;}
 .consent-txt strong{color:var(--vert);}
 
-/* ── BOUTON SIGNER ── */
-.btn-signer{
-  width:100%;padding:18px;border:none;border-radius:14px;
-  background:var(--vert);color:white;
-  font-family:'DM Sans',sans-serif;
-  font-size:16px;font-weight:900;
-  cursor:pointer;transition:all 0.2s;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  letter-spacing:-0.2px;
-}
-.btn-signer:hover{background:var(--vert-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,77,26,0.3);}
-.btn-signer:disabled{background:#c8dcc4;cursor:not-allowed;transform:none;box-shadow:none;}
+/* BTN SIGNER */
+.btn-signer{width:100%;padding:18px;border:none;border-radius:14px;background:var(--vert);color:white;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:900;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:10px;}
+.btn-signer:hover:not(:disabled){background:var(--vert-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,77,26,0.3);}
+.btn-signer:disabled{background:#c8dcc4;cursor:not-allowed;}
 
-/* ── SÉCURITÉ ── */
-.securite{
-  display:flex;flex-direction:column;gap:5px;
-  margin-top:14px;padding:12px 14px;
-  background:#f8faf7;border-radius:10px;
-  border:1px solid var(--bg2);
-}
+.securite{display:flex;flex-direction:column;gap:5px;margin-top:14px;padding:12px 14px;background:#f8faf7;border-radius:10px;border:1px solid var(--bg2);}
 .sec-row{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--gris);}
-.sec-row .ico{font-size:13px;}
 
-/* ── ÉCRAN SUCCÈS ── */
-#ecran-succes{display:none;width:100%;max-width:540px;}
-.succes-card{
-  background:white;border-radius:20px;
-  box-shadow:0 4px 40px rgba(0,0,0,0.10);
-  padding:40px 32px;text-align:center;
-}
-.succes-check{
-  width:80px;height:80px;background:#dcfce7;
-  border-radius:50%;display:flex;align-items:center;
-  justify-content:center;font-size:36px;
-  margin:0 auto 20px;
-}
-.succes-titre{font-size:22px;font-weight:900;color:var(--vert);margin-bottom:8px;}
-.succes-sous{font-size:14px;color:var(--gris);line-height:1.7;margin-bottom:24px;}
-.succes-recap{
-  background:var(--bg);border-radius:12px;padding:16px;
-  text-align:left;margin-bottom:20px;
-}
-.succes-ligne{
-  display:flex;justify-content:space-between;
-  font-size:13px;padding:5px 0;
-  border-bottom:1px solid var(--bg2);
-}
-.succes-ligne:last-child{border-bottom:none;}
-.succes-ligne strong{color:var(--vert);}
-.succes-footer{font-size:11px;color:var(--gris);margin-top:16px;line-height:1.8;}
+/* SUCCÈS */
+#ecran-succes{display:none;width:100%;max-width:560px;}
+.suc-card{background:white;border-radius:20px;box-shadow:0 4px 40px rgba(0,0,0,0.10);overflow:hidden;}
+.suc-head{background:var(--vert);padding:32px;text-align:center;}
+.suc-check{width:80px;height:80px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 16px;}
+.suc-titre{font-size:24px;font-weight:900;color:white;}
+.suc-sous{font-size:13px;color:rgba(255,255,255,0.7);margin-top:6px;line-height:1.6;}
+.suc-body{padding:22px;}
+.suc-ligne{display:flex;justify-content:space-between;font-size:13px;padding:8px 0;border-bottom:1px solid var(--bg2);}
+.suc-ligne:last-child{border-bottom:none;}
+.suc-ligne span{color:var(--gris);}
+.suc-ligne strong{color:var(--texte);}
+.suc-vers{background:var(--bg);border-radius:10px;padding:12px;margin-top:10px;}
+.sv-row{display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--bg2);}
+.sv-row:last-child{border-bottom:none;}
+.sv-row strong{color:var(--vert);}
+.suc-foot{text-align:center;font-size:12px;color:var(--gris);padding:16px 22px;background:var(--bg);line-height:1.8;}
 
-/* ── ÉCRAN ERREUR ── */
-#ecran-erreur{display:none;width:100%;max-width:540px;}
-.erreur-card{
-  background:white;border-radius:20px;padding:40px 32px;
-  text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.10);
-}
-.erreur-ico{font-size:48px;margin-bottom:16px;}
-.erreur-titre{font-size:20px;font-weight:900;color:var(--rouge);margin-bottom:8px;}
-.erreur-sous{font-size:13px;color:var(--gris);line-height:1.7;}
+/* ERREUR / DEJA */
+#ecran-erreur,#ecran-deja{display:none;width:100%;max-width:540px;}
+.alt-card{background:white;border-radius:20px;padding:40px 28px;text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.10);}
 
-/* ── ÉCRAN DEJA SIGNÉ ── */
-#ecran-deja{display:none;width:100%;max-width:540px;}
-.deja-card{
-  background:white;border-radius:20px;padding:40px 32px;
-  text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.10);
-}
-
-/* ── LOADING ── */
+/* LOADING */
 #ecran-chargement{width:100%;max-width:540px;text-align:center;padding:60px 0;}
-.spinner{
-  width:40px;height:40px;border:4px solid var(--bg2);
-  border-top-color:var(--vert);border-radius:50%;
-  animation:spin 0.8s linear infinite;margin:0 auto 16px;
-}
+.spinner{width:40px;height:40px;border:4px solid var(--bg2);border-top-color:var(--vert);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px;}
 @keyframes spin{to{transform:rotate(360deg);}}
 
 @media(max-width:480px){
-  .infos-grid{grid-template-columns:1fr;}
-  .mode-group{grid-template-columns:1fr;}
-  body{padding:20px 12px 60px;}
+  .infos-grid,.mode-grid{grid-template-columns:1fr;}
+  .vers-th,.vers-row{grid-template-columns:1fr 1fr auto;}
+  body{padding:20px 10px 60px;}
 }
 </style>
 </head>
@@ -265,8 +169,8 @@ canvas#sig-canvas{
   <p style="color:var(--gris);font-size:14px;font-weight:600;">Chargement du contrat…</p>
 </div>
 
-<!-- FORMULAIRE SIGNATURE -->
-<div id="ecran-principal" style="display:none;width:100%;max-width:540px;">
+<!-- PRINCIPAL -->
+<div id="ecran-principal" style="display:none;width:100%;max-width:560px;">
 
   <div class="top">
     <div class="badge-secure">🔒 Signature sécurisée</div>
@@ -274,359 +178,409 @@ canvas#sig-canvas{
     <p class="sous">Veuillez lire et signer votre contrat d'entretien paysager</p>
   </div>
 
+  <!-- INFOS CONTRAT -->
   <div class="card">
     <div class="card-head">
       <div class="ico">📄</div>
-      <div>
-        <h2 id="head-titre">Contrat d'entretien</h2>
-        <p id="head-num">CTR-00001</p>
+      <div><h2 id="head-titre">Contrat d'entretien</h2><p id="head-num">CTR-00001</p></div>
+    </div>
+    <div class="card-body">
+      <div class="infos-grid">
+        <div class="info-pill"><div class="info-lbl">Client</div><div class="info-val" id="info-nom">—</div></div>
+        <div class="info-pill"><div class="info-lbl">N° Contrat</div><div class="info-val num" id="info-num">—</div></div>
+        <div class="info-pill"><div class="info-lbl">Période</div><div class="info-val" id="info-periode">—</div></div>
+        <div class="info-pill"><div class="info-lbl">Type</div><div class="info-val" id="info-type">—</div></div>
       </div>
     </div>
+  </div>
 
+  <!-- DÉTAIL DU PRIX -->
+  <div class="card">
+    <div class="card-head gold">
+      <div class="ico" style="background:rgba(0,0,0,0.1);">💰</div>
+      <div><h2>Détail du prix</h2><p>Sous-total · TPS · TVQ · Total</p></div>
+    </div>
     <div class="card-body">
-
-      <!-- INFOS CLIENT -->
-      <div class="infos-grid">
-        <div class="info-pill">
-          <div class="info-lbl">Client</div>
-          <div class="info-val" id="info-nom">—</div>
-        </div>
-        <div class="info-pill">
-          <div class="info-lbl">N° Contrat</div>
-          <div class="info-val num" id="info-num">—</div>
-        </div>
-        <div class="info-pill">
-          <div class="info-lbl">Période</div>
-          <div class="info-val" id="info-periode">—</div>
-        </div>
-        <div class="info-pill">
-          <div class="info-lbl">Type</div>
-          <div class="info-val" id="info-type">—</div>
-        </div>
+      <div class="taxes-bloc">
+        <div class="tax-row"><span>Sous-total (services)</span><span id="t-soustotal">—</span></div>
+        <div class="tax-sep"></div>
+        <div class="tax-row"><span>TPS &nbsp;(5 %)</span><span id="t-tps">—</span></div>
+        <div class="tax-row"><span>TVQ &nbsp;(9,975 %)</span><span id="t-tvq">—</span></div>
       </div>
-
-      <!-- SERVICES -->
-      <div class="svc-list" id="svc-list" style="display:none;">
-        <div class="svc-titre">✅ Services inclus</div>
-        <div id="svc-items"></div>
-      </div>
-
-      <!-- TOTAL -->
-      <div class="total-box">
-        <div>
-          <div class="lbl">Total TTC (taxes incluses)</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;">TPS + TVQ incluses</div>
-        </div>
+      <div class="total-ttc">
+        <div class="lbl">TOTAL AVEC TAXES<small>Taxes incluses</small></div>
         <div class="montant" id="info-total">—</div>
       </div>
+    </div>
+  </div>
 
-      <!-- MODALITÉ DE PAIEMENT -->
-      <div class="paiement-section">
-        <div class="section-titre">💳 Modalité de paiement</div>
-        <div class="radio-group">
-          <label class="radio-opt sel" id="opt-3v" onclick="choisirModalite('3v')">
-            <input type="radio" name="modalite" value="3v" checked>
-            <div>
-              <div class="radio-nom">3 versements égaux</div>
-              <div class="radio-desc">Début de saison · Mi-saison · Fin de saison</div>
-            </div>
-          </label>
-          <label class="radio-opt" id="opt-1v" onclick="choisirModalite('1v')">
-            <input type="radio" name="modalite" value="1v">
-            <div>
-              <div class="radio-nom">1 versement unique</div>
-              <div class="radio-desc">Paiement complet au début de la saison</div>
-            </div>
-          </label>
-        </div>
+  <!-- MODALITÉ DE PAIEMENT -->
+  <div class="card">
+    <div class="card-head">
+      <div class="ico">💳</div>
+      <div><h2>Modalité de paiement</h2><p>Choisissez votre façon de payer</p></div>
+    </div>
+    <div class="card-body">
+      <div class="radio-group">
 
-        <div class="versements show" id="versements-3v"></div>
-        <div class="versements" id="versements-1v"></div>
+        <!-- 3 VERSEMENTS -->
+        <label class="radio-opt sel" id="opt-3v" onclick="choisirModalite('3v')">
+          <input type="radio" name="modalite" value="3v" checked>
+          <div style="flex:1;">
+            <div class="r-nom">3 versements égaux</div>
+            <div class="r-desc">Répartis sur toute la saison — début, mi-saison, fin</div>
+            <div class="r-badge" id="badge-3v">3 × — $</div>
+          </div>
+        </label>
 
-        <div style="margin-top:14px;">
-          <div class="section-titre">Mode de paiement</div>
-          <div class="mode-group">
-            <label class="mode-opt sel" id="mode-interac" onclick="choisirMode('interac')">
-              <input type="radio" name="mode" value="interac" checked>
-              <span>💸 Interac</span>
-            </label>
-            <label class="mode-opt" id="mode-cheque" onclick="choisirMode('cheque')">
-              <input type="radio" name="mode" value="cheque">
-              <span>📝 Chèque</span>
-            </label>
+        <!-- TABLEAU 3V -->
+        <div class="vers-tableau show" id="vers-tableau-3v">
+          <div class="vers-th">
+            <span>Versement</span>
+            <span>Date prévue</span>
+            <span style="text-align:right;">Montant</span>
+          </div>
+          <div id="vers-rows-3v"></div>
+          <div class="vers-foot">
+            <span>Total avec taxes</span>
+            <strong id="vers-total-3v">—</strong>
           </div>
         </div>
-      </div>
 
-      <!-- SIGNATURE -->
-      <div class="signature-wrap">
-        <div class="section-titre">✍️ Votre signature</div>
-        <div class="canvas-container">
-          <canvas id="sig-canvas"></canvas>
-          <div class="sig-placeholder" id="sig-placeholder">
-            <div class="ph-ico">✍️</div>
-            <div class="ph-txt">Signez ici avec votre doigt ou votre souris</div>
+        <!-- 1 VERSEMENT -->
+        <label class="radio-opt" id="opt-1v" onclick="choisirModalite('1v')">
+          <input type="radio" name="modalite" value="1v">
+          <div style="flex:1;">
+            <div class="r-nom">1 versement unique</div>
+            <div class="r-desc">Paiement complet en début de saison — 1er mai 2026</div>
+            <div class="r-badge" id="badge-1v">— $</div>
           </div>
+        </label>
+
+        <!-- BLOC 1V -->
+        <div class="vers-1v" id="vers-bloc-1v">
+          <div>
+            <div class="v1-lbl">Versement unique</div>
+            <div class="v1-date">Dû le 1er mai 2026</div>
+          </div>
+          <div class="v1-mont" id="vers-mont-1v">—</div>
         </div>
-        <div class="sig-actions">
-          <button class="btn-effacer" onclick="effacerSig()">🗑️ Effacer la signature</button>
-          <span id="sig-status" style="font-size:12px;color:var(--vert-clair);display:flex;align-items:center;gap:4px;"></span>
-        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MODE DE PAIEMENT -->
+  <div class="card">
+    <div class="card-head bleu">
+      <div class="ico">🏦</div>
+      <div><h2>Mode de paiement</h2><p>Comment souhaitez-vous payer ?</p></div>
+    </div>
+    <div class="card-body">
+      <div class="mode-grid">
+        <label class="mode-opt sel" id="mode-interac" onclick="choisirMode('interac')">
+          <input type="radio" name="mode" value="interac" checked>
+          <div class="m-ico">💸</div>
+          <div><div class="m-nom">Interac</div><div class="m-desc">Virement électronique</div></div>
+        </label>
+        <label class="mode-opt" id="mode-cheque" onclick="choisirMode('cheque')">
+          <input type="radio" name="mode" value="cheque">
+          <div class="m-ico">📝</div>
+          <div><div class="m-nom">Chèque</div><div class="m-desc">À l'ordre de C-Net</div></div>
+        </label>
       </div>
 
-      <!-- CONSENTEMENT -->
-      <label class="consent" id="consent-label">
+      <!-- INFO INTERAC -->
+      <div class="info-paiement show" id="info-interac">
+        <div class="ip-titre">💸 Informations Interac</div>
+        <div class="ip-ligne">Envoyer à : <strong id="interac-courriel"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a1c8cfc7cee1c4cfd5d3c4d5c8c4cfc2cfc4d58fc2c0">[email&#160;protected]</a></strong></div>
+        <div class="ip-ligne">Question : <strong>Nom de la compagnie</strong></div>
+        <div class="ip-ligne">Réponse : <strong id="interac-nom">Entretien C-Net</strong></div>
+        <div class="ip-note">Indiquez le numéro de contrat dans le message du virement.</div>
+      </div>
+
+      <!-- INFO CHÈQUE -->
+      <div class="info-paiement" id="info-cheque">
+        <div class="ip-titre">📝 Informations chèque</div>
+        <div class="ip-ligne">À l'ordre de : <strong id="cheque-nom">Entretien C-Net</strong></div>
+        <div class="ip-ligne">Inscrire au verso : <strong>Numéro de contrat + votre nom</strong></div>
+        <div class="ip-note">Remettre lors de la première visite ou envoyer par courrier.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="card">
+    <div class="card-head">
+      <div class="ico">✍️</div>
+      <div><h2>Votre signature</h2><p>Signez avec votre doigt ou votre souris</p></div>
+    </div>
+    <div class="card-body">
+
+      <div class="canvas-container">
+        <canvas id="sig-canvas"></canvas>
+        <div class="sig-ph" id="sig-placeholder">
+          <div class="ph-ico">✍️</div>
+          <div class="ph-txt">Tracez votre signature ici</div>
+        </div>
+      </div>
+      <div class="sig-actions">
+        <button class="btn-eff" onclick="effacerSig()">🗑️ Effacer</button>
+        <span id="sig-status" style="font-size:12px;color:var(--vert-clair);font-weight:700;"></span>
+      </div>
+
+      <div style="height:16px;"></div>
+
+      <label class="consent">
         <input type="checkbox" id="consent-check" onchange="majBouton()">
         <div class="consent-txt">
           J'ai lu et j'accepte les conditions du contrat d'entretien paysager.
           Je comprends que cette signature électronique a la même valeur légale qu'une signature manuscrite.
-          <strong>Je confirme que je suis <span id="consent-nom">le client</span>.</strong>
+          <strong>Je confirme être <span id="consent-nom">le client</span> et je valide la modalité de paiement choisie.</strong>
         </div>
       </label>
 
-      <!-- BOUTON -->
       <button class="btn-signer" id="btn-signer" disabled onclick="soumettre()">
         ✍️ Signer le contrat
       </button>
 
-      <!-- SÉCURITÉ -->
       <div class="securite">
-        <div class="sec-row"><span class="ico">🔒</span> Connexion sécurisée — vos données sont protégées</div>
-        <div class="sec-row"><span class="ico">✅</span> Signature unique — impossible de signer deux fois</div>
-        <div class="sec-row"><span class="ico">📧</span> Une confirmation vous sera envoyée par courriel</div>
-        <div class="sec-row"><span class="ico">🏢</span> <span id="sec-compagnie">Entretien C-Net</span> — contrat officiel saison 2026</div>
+        <div class="sec-row"><span>🔒</span> Connexion sécurisée — vos données sont protégées</div>
+        <div class="sec-row"><span>✅</span> Signature unique — impossible de signer deux fois</div>
+        <div class="sec-row"><span>💳</span> Votre choix de versement est enregistré définitivement</div>
+        <div class="sec-row"><span>🏢</span> <span id="sec-compagnie">Entretien C-Net</span> — contrat officiel saison 2026</div>
       </div>
 
-    </div><!-- /card-body -->
-  </div><!-- /card -->
+    </div>
+  </div>
 
 </div><!-- /ecran-principal -->
 
 <!-- SUCCÈS -->
 <div id="ecran-succes">
-  <div class="succes-card">
-    <div class="succes-check">✅</div>
-    <div class="succes-titre">Contrat signé !</div>
-    <div class="succes-sous">
-      Merci <strong id="s-nom"></strong>.<br>
-      Votre contrat a été signé avec succès.<br>
-      Entretien C-Net vous contactera prochainement.
+  <div class="suc-card">
+    <div class="suc-head">
+      <div class="suc-check">✅</div>
+      <div class="suc-titre">Contrat signé !</div>
+      <div class="suc-sous">Merci <strong id="s-nom"></strong>.<br>Votre contrat a été enregistré avec succès.</div>
     </div>
-    <div class="succes-recap">
-      <div class="succes-ligne"><span>Contrat</span><strong id="s-num"></strong></div>
-      <div class="succes-ligne"><span>Modalité</span><strong id="s-modalite"></strong></div>
-      <div class="succes-ligne"><span>Mode</span><strong id="s-mode"></strong></div>
-      <div class="succes-ligne"><span>Total TTC</span><strong id="s-total"></strong></div>
-      <div class="succes-ligne"><span>Signé le</span><strong id="s-date"></strong></div>
+    <div class="suc-body">
+      <div class="suc-ligne"><span>Contrat N°</span><strong id="s-num"></strong></div>
+      <div class="suc-ligne"><span>Modalité</span><strong id="s-modalite"></strong></div>
+      <div class="suc-ligne"><span>Mode de paiement</span><strong id="s-mode"></strong></div>
+      <div class="suc-ligne"><span>Sous-total</span><strong id="s-soustotal"></strong></div>
+      <div class="suc-ligne"><span>Taxes (TPS + TVQ)</span><strong id="s-taxes"></strong></div>
+      <div class="suc-ligne"><span>Total avec taxes</span><strong id="s-total" style="color:var(--vert);font-size:16px;"></strong></div>
+      <div class="suc-ligne"><span>Signé le</span><strong id="s-date"></strong></div>
+
+      <div id="s-vers-wrap" style="display:none;margin-top:4px;">
+        <div style="font-size:10px;font-weight:800;color:var(--gris);text-transform:uppercase;margin:12px 0 6px;">Échéancier</div>
+        <div class="suc-vers" id="s-vers-liste"></div>
+      </div>
     </div>
-    <div class="succes-footer">
-      📧 Gardez cette page comme confirmation.<br>
-      Pour toute question : <strong id="s-tel"></strong>
+    <div class="suc-foot">
+      📧 Conservez cette page comme confirmation.<br>
+      Entretien C-Net vous contactera prochainement.<br>
+      Questions : <strong id="s-tel"></strong>
     </div>
   </div>
 </div>
 
 <!-- DÉJÀ SIGNÉ -->
 <div id="ecran-deja">
-  <div class="deja-card">
+  <div class="alt-card">
     <div style="font-size:48px;margin-bottom:16px;">📋</div>
     <div style="font-size:20px;font-weight:900;color:var(--bleu);margin-bottom:8px;">Contrat déjà signé</div>
-    <div style="font-size:13px;color:var(--gris);line-height:1.7;">
-      Ce contrat a déjà été signé.<br>
-      Si vous croyez qu'il s'agit d'une erreur, contactez Entretien C-Net.
-    </div>
-    <div style="margin-top:16px;font-size:13px;font-weight:700;" id="deja-tel"></div>
+    <div style="font-size:13px;color:var(--gris);line-height:1.7;">Ce contrat a déjà été signé.<br>Contactez Entretien C-Net si vous croyez qu'il s'agit d'une erreur.</div>
+    <div style="margin-top:16px;font-size:14px;font-weight:700;color:var(--vert);" id="deja-tel"></div>
   </div>
 </div>
 
 <!-- ERREUR -->
 <div id="ecran-erreur">
-  <div class="erreur-card">
-    <div class="erreur-ico">⚠️</div>
-    <div class="erreur-titre">Lien invalide</div>
-    <div class="erreur-sous" id="erreur-msg">
-      Ce lien de signature est invalide ou a expiré.<br>
-      Contactez Entretien C-Net pour obtenir un nouveau lien.
-    </div>
-    <div style="margin-top:16px;font-size:13px;font-weight:700;" id="erreur-tel"></div>
+  <div class="alt-card">
+    <div style="font-size:48px;margin-bottom:16px;">⚠️</div>
+    <div style="font-size:20px;font-weight:900;color:var(--rouge);margin-bottom:8px;">Lien invalide</div>
+    <div style="font-size:13px;color:var(--gris);line-height:1.7;" id="erreur-msg">Ce lien est invalide ou a expiré.</div>
+    <div style="margin-top:16px;font-size:14px;font-weight:700;color:var(--vert);" id="erreur-tel"></div>
   </div>
 </div>
 
-<script>
-// ════════════════════════════════════════════
-// LECTURE DES PARAMÈTRES URL
-// ?contrat=CTR-00001&nom=Jean+Tremblay&tel=418-000-0000
-// ════════════════════════════════════════════
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ════════════════════════════════════════
+// PARAMÈTRES URL : ?contrat=CTR-00001&nom=Jean+Tremblay&tel=418-000-0000
+// ════════════════════════════════════════
 var p = new URLSearchParams(window.location.search);
 var CONTRAT_NUM = p.get('contrat') || '';
 var CLIENT_NOM  = decodeURIComponent(p.get('nom') || '');
 var CLIENT_TEL  = decodeURIComponent(p.get('tel') || '');
 
-// Branding depuis localStorage (si même domaine) ou valeurs par défaut
-var BRANDING = { nom:'Entretien C-Net', tel:'418 440-6303', couleur:'#1e4d1a' };
+var BRANDING = { nom:'Entretien C-Net', tel:'418 440-6303', email:'info@entretiencnet.ca', couleur:'#1e4d1a' };
 try {
   var b = JSON.parse(localStorage.getItem('cnet-branding') || '{}');
-  if (b.nom) BRANDING.nom = b.nom;
-  if (b.tel) BRANDING.tel = b.tel;
-  if (b.couleur) BRANDING.couleur = b.couleur;
-} catch(e) {}
+  if (b.nom)    BRANDING.nom    = b.nom;
+  if (b.tel)    BRANDING.tel    = b.tel;
+  if (b.email)  BRANDING.email  = b.email;
+  if (b.couleur)BRANDING.couleur= b.couleur;
+} catch(ex) {}
 
-// Contrats depuis localStorage
 var contrats = [];
-try { contrats = JSON.parse(localStorage.getItem('cnet-contrats') || '[]'); } catch(e) {}
+try { contrats = JSON.parse(localStorage.getItem('cnet-contrats') || '[]'); } catch(ex) {}
 
-var contrat = null;
-var montantHT = 0;
-var totalTTC = 0;
-var modaliteChoisie = '3v';
-var modeChoisi = 'interac';
-var signatureVide = true;
+var contrat           = null;
+var montantHT         = 0;
+var totalTPS          = 0;
+var totalTVQ          = 0;
+var totalTTC          = 0;
+var ANNEE             = new Date().getFullYear();
+var modaliteChoisie   = '3v';
+var modeChoisi        = 'interac';
+var signatureVide     = true;
 
-// ════════════════════════════════════════════
+// ════════════════════════════════════════
 // INIT
-// ════════════════════════════════════════════
-window.addEventListener('DOMContentLoaded', function() {
-  setTimeout(init, 600);
-});
+// ════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', function() { setTimeout(init, 700); });
 
 function init() {
-  // Chercher le contrat
-  if (!CONTRAT_NUM) {
-    afficherErreur('Aucun numéro de contrat dans le lien.');
-    return;
-  }
+  if (!CONTRAT_NUM) { afficherErreur('Aucun numéro de contrat dans ce lien.'); return; }
 
   contrat = contrats.find(function(c) { return c.num === CONTRAT_NUM; });
-
   if (!contrat) {
-    // Pas dans localStorage — construire depuis les paramètres URL
-    contrat = {
-      num: CONTRAT_NUM,
-      nom: CLIENT_NOM || 'Client',
-      tel: CLIENT_TEL || '',
-      signe: false
-    };
+    contrat = { num: CONTRAT_NUM, nom: CLIENT_NOM || 'Client', tel: CLIENT_TEL || '', signe: false };
   }
+  if (contrat.signe) { afficherDejaSign(); return; }
 
-  if (contrat.signe) {
-    afficherDejaSign();
-    return;
-  }
-
-  remplirInterface();
-  initCanvas();
-  document.getElementById('ecran-chargement').style.display = 'none';
-  document.getElementById('ecran-principal').style.display = 'block';
-}
-
-function remplirInterface() {
-  var nom = contrat.nom || CLIENT_NOM || 'Client';
-  var num = contrat.num || CONTRAT_NUM;
-  var debut = contrat.debut || '2026-05-15';
-  var fin = contrat.fin || '2026-10-15';
-  var type = contrat.type === 'commercial' ? '🏢 Commercial' : '🏡 Résidentiel';
+  // Calculs
   montantHT = parseFloat(contrat.montant) || 0;
-  totalTTC = Math.round(montantHT * 1.14975 * 100) / 100;
+  totalTPS  = Math.round(montantHT * 0.05    * 100) / 100;
+  totalTVQ  = Math.round(montantHT * 0.09975 * 100) / 100;
+  totalTTC  = Math.round((montantHT + totalTPS + totalTVQ) * 100) / 100;
 
   // Branding
-  document.getElementById('nom-compagnie').textContent = BRANDING.nom;
-  document.getElementById('sec-compagnie').textContent = BRANDING.nom;
-  document.getElementById('head-titre').textContent = 'Contrat d\'entretien — ' + BRANDING.nom;
-  document.getElementById('head-num').textContent = num;
+  document.getElementById('nom-compagnie').textContent   = BRANDING.nom;
+  document.getElementById('sec-compagnie').textContent   = BRANDING.nom;
+  document.getElementById('head-titre').textContent      = 'Contrat — ' + BRANDING.nom;
+  document.getElementById('head-num').textContent        = CONTRAT_NUM;
+  document.getElementById('interac-courriel').textContent= BRANDING.email || 'info@entretiencnet.ca';
+  document.getElementById('interac-nom').textContent     = BRANDING.nom;
+  document.getElementById('cheque-nom').textContent      = BRANDING.nom;
 
   // Infos
-  document.getElementById('info-nom').textContent = nom;
-  document.getElementById('info-num').textContent = num;
-  document.getElementById('info-periode').textContent = debut + ' → ' + fin;
-  document.getElementById('info-type').textContent = type;
-  document.getElementById('info-total').textContent = totalTTC > 0 ? fmt(totalTTC) + ' $' : 'Sur devis';
-  document.getElementById('consent-nom').textContent = nom;
+  document.getElementById('info-nom').textContent     = contrat.nom || CLIENT_NOM || '—';
+  document.getElementById('info-num').textContent     = contrat.num || CONTRAT_NUM;
+  document.getElementById('info-periode').textContent = (contrat.debut || ANNEE+'-05-15') + ' → ' + (contrat.fin || ANNEE+'-10-15');
+  document.getElementById('info-type').textContent    = contrat.type === 'commercial' ? '🏢 Commercial' : '🏡 Résidentiel';
+  document.getElementById('consent-nom').textContent  = contrat.nom || CLIENT_NOM || 'le client';
 
-  // Services (si disponibles)
-  // On ne les a pas forcément dans l'URL — on affiche juste le total
-
-  // Versements
+  // Prix
+  remplirPrix();
   majVersements();
+
+  initCanvas();
+  document.getElementById('ecran-chargement').style.display = 'none';
+  document.getElementById('ecran-principal').style.display  = 'block';
 }
 
-function majVersements() {
-  var v3 = document.getElementById('versements-3v');
-  var v1 = document.getElementById('versements-1v');
-  var ANNEE = new Date().getFullYear();
-
-  if (totalTTC > 0) {
-    var p1 = Math.round(totalTTC/3*100)/100;
-    var p2 = p1;
-    var p3 = Math.round((totalTTC - p1*2)*100)/100;
-    v3.innerHTML =
-      vRow('1er versement', fmt(p1)+' $', ANNEE+'-05-01') +
-      vRow('2e versement',  fmt(p2)+' $', ANNEE+'-07-01') +
-      vRow('3e versement',  fmt(p3)+' $', ANNEE+'-09-01');
-    v1.innerHTML = vRow('Versement unique', fmt(totalTTC)+' $', ANNEE+'-05-01');
+// ════════════════════════════════════════
+// PRIX DÉTAILLÉ
+// ════════════════════════════════════════
+function remplirPrix() {
+  if (montantHT > 0) {
+    document.getElementById('t-soustotal').textContent = fmt(montantHT)  + ' $';
+    document.getElementById('t-tps').textContent       = fmt(totalTPS)   + ' $';
+    document.getElementById('t-tvq').textContent       = fmt(totalTVQ)   + ' $';
+    document.getElementById('info-total').textContent  = fmt(totalTTC)   + ' $';
   } else {
-    v3.innerHTML = v1.innerHTML = '<div class="v-row"><span class="v-lbl">Montant à confirmer par Entretien C-Net</span></div>';
+    document.getElementById('t-soustotal').textContent = 'À confirmer';
+    document.getElementById('t-tps').textContent       = '—';
+    document.getElementById('t-tvq').textContent       = '—';
+    document.getElementById('info-total').textContent  = 'Sur devis';
   }
 }
 
-function vRow(lbl, montant, date) {
-  return '<div class="v-row">' +
-    '<span class="v-lbl">' + lbl + '</span>' +
-    '<div style="text-align:right;">' +
-      '<div class="v-montant">' + montant + '</div>' +
-      '<div class="v-date">' + date + '</div>' +
-    '</div></div>';
+// ════════════════════════════════════════
+// VERSEMENTS
+// ════════════════════════════════════════
+function majVersements() {
+  if (totalTTC <= 0) return;
+
+  var v1 = Math.round(totalTTC / 3 * 100) / 100;
+  var v2 = v1;
+  var v3 = Math.round((totalTTC - v1 * 2) * 100) / 100;
+
+  document.getElementById('badge-3v').textContent       = '3 × ' + fmt(v1) + ' $';
+  document.getElementById('badge-1v').textContent       = fmt(totalTTC) + ' $';
+  document.getElementById('vers-total-3v').textContent  = fmt(totalTTC) + ' $';
+  document.getElementById('vers-mont-1v').textContent   = fmt(totalTTC) + ' $';
+
+  document.getElementById('vers-rows-3v').innerHTML =
+    versRow('1er versement', ANNEE + '-05-01', v1) +
+    versRow('2e versement',  ANNEE + '-07-01', v2) +
+    versRow('3e versement',  ANNEE + '-09-01', v3);
+}
+
+function versRow(lbl, dateISO, montant) {
+  var d = new Date(dateISO + 'T12:00:00');
+  var mois = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+  var dateLbl = d.getDate() + ' ' + mois[d.getMonth()] + ' ' + d.getFullYear();
+  return '<div class="vers-row">' +
+    '<span class="vr-lbl">' + lbl + '</span>' +
+    '<span class="vr-date">' + dateLbl + '</span>' +
+    '<span class="vr-mont">' + fmt(montant) + ' $</span>' +
+  '</div>';
 }
 
 function fmt(n) {
-  return parseFloat(n||0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,' ').replace('.',',');
+  return parseFloat(n || 0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' ').replace('.', ',');
 }
 
-// ════════════════════════════════════════════
-// CHOIX MODALITÉ / MODE
-// ════════════════════════════════════════════
+// ════════════════════════════════════════
+// CHOIX MODALITÉ
+// ════════════════════════════════════════
 function choisirModalite(val) {
   modaliteChoisie = val;
-  ['3v','1v'].forEach(function(v) {
-    document.getElementById('opt-' + v).classList.toggle('sel', v === val);
-    var el = document.getElementById('versements-' + v);
-    if (el) el.classList.toggle('show', v === val);
-  });
+  document.getElementById('opt-3v').classList.toggle('sel', val === '3v');
+  document.getElementById('opt-1v').classList.toggle('sel', val === '1v');
+  document.getElementById('vers-tableau-3v').classList.toggle('show', val === '3v');
+  document.getElementById('vers-bloc-1v').classList.toggle('show',   val === '1v');
 }
 
+// ════════════════════════════════════════
+// CHOIX MODE
+// ════════════════════════════════════════
 function choisirMode(val) {
   modeChoisi = val;
-  ['interac','cheque'].forEach(function(v) {
-    document.getElementById('mode-' + v).classList.toggle('sel', v === val);
-  });
+  document.getElementById('mode-interac').classList.toggle('sel', val === 'interac');
+  document.getElementById('mode-cheque').classList.toggle('sel',  val === 'cheque');
+  document.getElementById('info-interac').classList.toggle('show', val === 'interac');
+  document.getElementById('info-cheque').classList.toggle('show',  val === 'cheque');
 }
 
-// ════════════════════════════════════════════
-// CANVAS SIGNATURE
-// ════════════════════════════════════════════
+// ════════════════════════════════════════
+// CANVAS
+// ════════════════════════════════════════
 var canvas, ctx, dessin = false, points = [];
 
 function initCanvas() {
   canvas = document.getElementById('sig-canvas');
   ctx = canvas.getContext('2d');
-  var dpr = window.devicePixelRatio || 1;
+  var dpr  = window.devicePixelRatio || 1;
   var rect = canvas.parentElement.getBoundingClientRect();
-  canvas.width = rect.width * dpr;
+  canvas.width  = rect.width * dpr;
   canvas.height = 200 * dpr;
   ctx.scale(dpr, dpr);
-  canvas.style.width = rect.width + 'px';
+  canvas.style.width  = rect.width + 'px';
   canvas.style.height = '200px';
   ctx.strokeStyle = '#1a2e18';
-  ctx.lineWidth = 2.5;
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
+  ctx.lineWidth   = 2.5;
+  ctx.lineCap     = 'round';
+  ctx.lineJoin    = 'round';
 
-  // Souris
-  canvas.addEventListener('mousedown', function(e) { startDraw(e.offsetX, e.offsetY); });
-  canvas.addEventListener('mousemove', function(e) { if(dessin) draw(e.offsetX, e.offsetY); });
-  canvas.addEventListener('mouseup', stopDraw);
+  canvas.addEventListener('mousedown',  function(e) { startDraw(e.offsetX, e.offsetY); });
+  canvas.addEventListener('mousemove',  function(e) { if (dessin) draw(e.offsetX, e.offsetY); });
+  canvas.addEventListener('mouseup',    stopDraw);
   canvas.addEventListener('mouseleave', stopDraw);
-
-  // Tactile
   canvas.addEventListener('touchstart', function(e) {
     e.preventDefault();
     var t = e.touches[0], r = canvas.getBoundingClientRect();
@@ -635,7 +589,7 @@ function initCanvas() {
   canvas.addEventListener('touchmove', function(e) {
     e.preventDefault();
     var t = e.touches[0], r = canvas.getBoundingClientRect();
-    if(dessin) draw(t.clientX - r.left, t.clientY - r.top);
+    if (dessin) draw(t.clientX - r.left, t.clientY - r.top);
   }, { passive: false });
   canvas.addEventListener('touchend', stopDraw);
 }
@@ -646,11 +600,7 @@ function startDraw(x, y) {
   points.push([x, y]);
   document.getElementById('sig-placeholder').classList.add('hidden');
 }
-function draw(x, y) {
-  if (!dessin) return;
-  ctx.lineTo(x, y); ctx.stroke();
-  points.push([x, y]);
-}
+function draw(x, y) { if (!dessin) return; ctx.lineTo(x, y); ctx.stroke(); points.push([x, y]); }
 function stopDraw() {
   if (!dessin) return;
   dessin = false;
@@ -668,77 +618,82 @@ function effacerSig() {
   majBouton();
 }
 
-// ════════════════════════════════════════════
-// ACTIVATION BOUTON
-// ════════════════════════════════════════════
 function majBouton() {
   var ok = !signatureVide && document.getElementById('consent-check').checked;
   document.getElementById('btn-signer').disabled = !ok;
 }
 
-// ════════════════════════════════════════════
+// ════════════════════════════════════════
 // SOUMISSION
-// ════════════════════════════════════════════
+// ════════════════════════════════════════
 function soumettre() {
   var btn = document.getElementById('btn-signer');
   btn.disabled = true;
-  btn.textContent = '⏳ Enregistrement…';
+  btn.innerHTML = '⏳ Enregistrement…';
 
   var today = new Date().toLocaleDateString('fr-CA');
-  var nom = contrat.nom || CLIENT_NOM || 'Client';
+  var nom   = contrat.nom || CLIENT_NOM || 'Client';
 
-  // Marquer signé dans localStorage
-  var idx = contrats.findIndex(function(c) { return c.num === CONTRAT_NUM; });
-  var ANNEE = new Date().getFullYear();
-  var p1 = Math.round(totalTTC/3*100)/100;
-  var p3 = Math.round((totalTTC-p1*2)*100)/100;
+  var v1 = Math.round(totalTTC / 3 * 100) / 100;
+  var v3 = Math.round((totalTTC - v1 * 2) * 100) / 100;
   var versements = modaliteChoisie === '1v'
     ? [{ num:1, label:'Versement unique', date:ANNEE+'-05-01', montant:totalTTC, recu:false }]
     : [
-        { num:1, label:'1er versement', date:ANNEE+'-05-01', montant:p1, recu:false },
-        { num:2, label:'2e versement',  date:ANNEE+'-07-01', montant:p1, recu:false },
-        { num:3, label:'3e versement',  date:ANNEE+'-09-01', montant:p3, recu:false }
+        { num:1, label:'1er versement', date:ANNEE+'-05-01', montant:v1, recu:false },
+        { num:2, label:'2e versement',  date:ANNEE+'-07-01', montant:v1, recu:false },
+        { num:3, label:'3e versement',  date:ANNEE+'-09-01', montant:v3, recu:false }
       ];
 
+  // Sauvegarder
+  var idx = contrats.findIndex(function(c) { return c.num === CONTRAT_NUM; });
   if (idx >= 0) {
-    contrats[idx].signe = true;
-    contrats[idx].dateSig = today;
+    contrats[idx].signe            = true;
+    contrats[idx].dateSig          = today;
     contrats[idx].modalitePaiement = modaliteChoisie;
-    contrats[idx].modePaiement = modeChoisi;
-    contrats[idx].versements = versements;
-    localStorage.setItem('cnet-contrats', JSON.stringify(contrats));
+    contrats[idx].modePaiement     = modeChoisi;
+    contrats[idx].versements       = versements;
+    try { localStorage.setItem('cnet-contrats', JSON.stringify(contrats)); } catch(ex) {}
   }
 
-  // Afficher succès
   setTimeout(function() {
-    document.getElementById('s-nom').textContent = nom;
-    document.getElementById('s-num').textContent = CONTRAT_NUM;
-    document.getElementById('s-modalite').textContent = modaliteChoisie === '1v' ? '1 versement unique' : '3 versements';
-    document.getElementById('s-mode').textContent = modeChoisi === 'interac' ? 'Interac' : 'Chèque';
-    document.getElementById('s-total').textContent = totalTTC > 0 ? fmt(totalTTC) + ' $' : 'Sur devis';
-    document.getElementById('s-date').textContent = today;
-    document.getElementById('s-tel').textContent = BRANDING.tel;
+    var taxes = Math.round((totalTPS + totalTVQ) * 100) / 100;
+
+    document.getElementById('s-nom').textContent      = nom;
+    document.getElementById('s-num').textContent      = CONTRAT_NUM;
+    document.getElementById('s-modalite').textContent = modaliteChoisie === '1v' ? '1 versement unique' : '3 versements égaux';
+    document.getElementById('s-mode').textContent     = modeChoisi === 'interac' ? '💸 Interac' : '📝 Chèque';
+    document.getElementById('s-soustotal').textContent= montantHT > 0 ? fmt(montantHT) + ' $' : '—';
+    document.getElementById('s-taxes').textContent    = montantHT > 0 ? fmt(taxes) + ' $' : '—';
+    document.getElementById('s-total').textContent    = totalTTC  > 0 ? fmt(totalTTC) + ' $' : 'Sur devis';
+    document.getElementById('s-date').textContent     = today;
+    document.getElementById('s-tel').textContent      = BRANDING.tel;
+
+    // Échéancier dans le succès
+    if (modaliteChoisie === '3v') {
+      var moisNom = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+      var html = versements.map(function(v) {
+        var d = new Date(v.date + 'T12:00:00');
+        var dl = d.getDate() + ' ' + moisNom[d.getMonth()] + ' ' + d.getFullYear();
+        return '<div class="sv-row"><span>' + v.label + ' — ' + dl + '</span><strong>' + fmt(v.montant) + ' $</strong></div>';
+      }).join('');
+      document.getElementById('s-vers-liste').innerHTML = html;
+      document.getElementById('s-vers-wrap').style.display = 'block';
+    }
+
     document.getElementById('ecran-principal').style.display = 'none';
-    document.getElementById('ecran-succes').style.display = 'block';
+    document.getElementById('ecran-succes').style.display    = 'block';
     window.scrollTo(0, 0);
-  }, 1000);
+  }, 1200);
 }
 
-// ════════════════════════════════════════════
+// ════════════════════════════════════════
 // ÉCRANS ALTERNATIFS
-// ════════════════════════════════════════════
+// ════════════════════════════════════════
 function afficherDejaSign() {
   document.getElementById('ecran-chargement').style.display = 'none';
   document.getElementById('deja-tel').textContent = BRANDING.tel;
   document.getElementById('ecran-deja').style.display = 'block';
 }
-
 function afficherErreur(msg) {
   document.getElementById('ecran-chargement').style.display = 'none';
-  document.getElementById('erreur-msg').textContent = msg + '\nContactez Entretien C-Net pour un nouveau lien.';
-  document.getElementById('erreur-tel').textContent = BRANDING.tel;
-  document.getElementById('ecran-erreur').style.display = 'block';
-}
-</script>
-</body>
-</html>
+  document.getElementById('erreur-msg').tex
